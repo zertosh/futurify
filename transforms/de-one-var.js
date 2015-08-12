@@ -19,7 +19,7 @@ module.exports = function(file, opts) {
       // preserving the first "var" causes weird spacing issues around
       // comments, so just re-build all the declarations.
       var newDecls = path.node.declarations.map(function(decl, i) {
-        var newDecl = b.variableDeclaration('var', [decl]);
+        var newDecl = b.variableDeclaration(path.node.kind, [decl]);
         // re-attach comments
         if (decl.comments) {
           newDecl.comments = decl.comments;
